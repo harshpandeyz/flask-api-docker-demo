@@ -2,11 +2,6 @@ pipeline {
     agent any
 
     stages {
-        stage('Clone') {
-            steps {
-                git 'https://github.com/harshpandeyz/flask-api-docker-demo.git'
-            }
-        }
 
         stage('Build Docker Image') {
             steps {
@@ -25,8 +20,12 @@ pipeline {
 
         stage('Test API') {
             steps {
-                bat 'curl http://localhost:5000/api/hello'
+                bat '''
+                echo Waiting for app to start...
+                timeout /t 5 > nul
+                curl http://localhost:5000/api/hello
+                '''
             }
         }
     }
-}
+} 
