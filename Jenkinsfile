@@ -22,10 +22,10 @@ pipeline {
             steps {
                 bat '''
                 echo Waiting for app to start...
-                timeout /t 5
+                timeout /t 5 > nul
                 curl http://localhost:5000/api/hello
                 '''
             }
         }
     }
-}
+}   
