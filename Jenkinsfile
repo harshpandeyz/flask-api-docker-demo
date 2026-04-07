@@ -20,11 +20,7 @@ pipeline {
 
         stage('Test API') {
             steps {
-                bat '''
-                echo Waiting for app to start...
-                timeout /t 5 > nul
-                curl http://localhost:5000/api/hello
-                '''
+                bat 'curl http://localhost:1234/api/hello'
             }
         }
     }
