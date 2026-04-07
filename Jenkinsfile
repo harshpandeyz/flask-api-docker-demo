@@ -25,7 +25,7 @@ pipeline {
 
         stage('Test API') {
             steps {
-                bat 'curl http://localhost:5000/api/hello'
+                bat 'curl http://localhost:1234/api/hello'
             }
         }
     }
