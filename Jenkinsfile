@@ -2,11 +2,6 @@ pipeline {
     agent any
 
     stages {
-        stage('Clone') {
-            steps {
-                git 'https://github.com/harshpandeyz/flask-api-docker-demo.git'
-            }
-        }
 
         stage('Build Docker Image') {
             steps {
@@ -29,4 +24,4 @@ pipeline {
             }
         }
     }
-}
+}   
